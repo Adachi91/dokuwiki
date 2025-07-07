@@ -1,0 +1,19 @@
+#pageheader .breadcrumbs a
+{
+	padding: 5px;
+}
+
+#pageheader .breadcrumbs a:first-child
+{
+	padding-left: 0;
+}
+
+#pageheader .breadcrumbs .youarehere
+{
+	padding: .1em .35em;
+}
+
+#pageheader .breadcrumbs .trace
+{
+	padding: .1em .35em;
+}

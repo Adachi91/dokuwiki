@@ -1,7 +1,3 @@
-/**
- * This file provides styles for all types of links.
- */
-
 /*____________ links to wiki pages ____________*/
 
 /* existing wikipage */
@@ -36,10 +32,6 @@
     background-repeat: no-repeat;
     background-position: 0 center;
     padding: 0 0 0 1.4em;
-}
-/* external link */
-.dokuwiki a.urlextern {
-    background-image: url(../../images/external-link.svg);
 }
 /* windows share */
 .dokuwiki a.windows {

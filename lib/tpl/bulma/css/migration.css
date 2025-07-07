@@ -1,0 +1,167 @@
+/* Extensible CSS to form the current layout. 
+	Because a moron can't understand words, or what they mean. fucking worthless.
+*/
+.sidebar {
+	/* border: 1px crimson solid; */
+	margin-left: -1.2735rem;
+	margin-right: 1.2735rem;
+	margin-top: -0.244rem;
+	background: #120721e5;
+	z-index: 999;
+	color: #FFF;
+	margin-bottom: -0.7425rem;
+	padding: 0;
+}
+
+.sidebar a:link {
+	color: #5be8ff;
+	text-shadow: 0px 1px 1px #4bd5f8;
+}
+
+.sidebar a:hover {
+	text-decoration: dotted !important;
+}
+
+a.urlextern::after {
+	/* External Link SVG from Mediacommons */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj4KCTx0aXRsZT4KCQlleHRlcm5hbCBsaW5rCgk8L3RpdGxlPgoJPHBhdGggZmlsbD0iIzM2YyIgZD0iTTYgMWg1djVMOC44NiAzLjg1IDQuNyA4IDQgNy4zbDQuMTUtNC4xNkw2IDFaIE0yIDNoMnYxSDJ2Nmg2VjhoMXYyYTEgMSAwIDAgMS0xIDFIMmExIDEgMCAwIDEtMS0xVjRhMSAxIDAgMCAxIDEtMVoiLz4KPC9zdmc+Cg==);
+	content: '';
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background-size: cover;
+	margin-left: 6px;
+}
+
+html, body { /*min-height: 100%; height:100%; overflow-y:hidden;*/ }
+html, body { margin: 0;padding: 0;height: calc(100% - 52px);position: relative;width: 100%; }
+.dokuwiki, .container, .columns { min-height: 100%; /*height:100%;*/ }
+
+hr {
+	/* background-color: #e292e9; */
+	/* border: none; */
+	/* display: block; */
+	/* height: 2px; */
+	margin: 0.6rem 0;
+	color: #e292e9;
+}
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+	color: #fca7ff;
+	font-weight: 600;
+	line-height: 1.125;
+}
+
+.sidebar h2, h3, h4, h5 {padding-left: 0.6rem;}
+
+
+.content ul {
+	color: #fca7ff;
+	list-style-type: square;
+}
+
+
+
+/* TOC Styling */
+
+/* Toc Header */
+.content .toc-header {
+	font-size: 1.25em;
+	margin-top: 2.23rem;
+	border-bottom: 2px solid #e292e9;
+	padding-bottom: 0.8em;
+}
+
+/* Toc Entries */
+
+.content ul {
+	list-style: disc outside;
+	margin-left: 1.4em;
+	margin-top: 1em;
+}
+
+.pl-4, .pl-2 {
+	padding-left: 0.1rem;
+}
+
+.content ul ul {
+	list-style-type: square;
+}
+
+/* Body work */
+
+body {
+	color: #c6c6c6;
+	font-size: 1em;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+pre {
+	-webkit-overflow-scrolling: touch;
+	background-color: #4e326b3d;
+	color: #ffb6ed;
+	font-size: .875em;
+	overflow-x: auto;
+	padding: 1.25rem 1.5rem;
+	white-space: pre;
+	word-wrap: normal;
+	inset: 1px 1px crimson;
+	border: 1px dashed #58aefa;
+}
+
+.breadcrumb li.is-active a {
+	color: #fff;
+	cursor: default;
+	pointer-events: none;
+}
+
+strong {
+	color: #e2e2e2;
+	font-weight: 700;
+}
+
+/* TODO: Fix body width and height, they use width, instead of min-width, and undo marginal positioning after the layout flow is fixed. */
+
+
+
+/* migration of CSS from mediawiki. */
+
+
+/* main_header css */
+.MainHeader, .header-status { display:flex; }
+
+.header-intro { flex:2;margin-right:2em; }
+
+.header-status { flex:0;align-self:flex-start;flex-direction:column; }
+
+.MainHeader h1 { border-bottom: 0px;font-size: 1.4em;margin-top: 0.5em; }
+
+/* Social Panels */
+.mainpage-social { padding-top: 0.5rem; line-height:1.6; }
+.mainpage-social-taglines { display:flex; flex-direction:column; }
+.tile-top { display: flex; align-items: center; padding: 0rem 3rem; background: #5865F2; }
+.mainpage-social .social-icon { margin-right: 0.75em; width: 60px; text-align: center; }
+.mainpage-social .social-header { color: #fff; font-weight: bold; font-size: 1.15em; margin: 0rem 0 -0.25rem !important; }
+.mainpage-social .social-tagline { color: #fff; margin: 0; }
+
+
+/* table CSS from divtable.com, what I was lazy. - To be removed and use Wiki table formatting */
+div.blueTable { border: 2px solid #C30D86;background-color: #FFFFFF;width: 352px;text-align: center;border-collapse: collapse; }
+.divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead { border: 1px solid #C30D86;padding: 6px 0px; }
+
+.divTable.blueTable .divTableHeading { background: #C30D86;background: linear-gradient(to bottom, #d249a4 0%, #c92592 66%, #C30D86 100%); }
+
+.divTable.blueTable .divTableHeading .divTableHead { font-size: 18px;font-weight: bold;color: #FFFFFF; }
+.blueTable .tableFootStyle { font-size: 14px; }
+.blueTable .tableFootStyle .links { text-align: right; }
+.blueTable .tableFootStyle .links a{ display: inline-block;background: #1C6EA4;color: #FFFFFF;padding: 2px 8px;border-radius: 5px; }
+.blueTable.outerTableFooter { border-top: none; }
+.blueTable.outerTableFooter .tableFootStyle { padding: 3px 5px; }
+.divTable{ display: table; }
+.divTableRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableCell, .divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group;}

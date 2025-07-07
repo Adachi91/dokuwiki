@@ -1,0 +1,70 @@
+<?php global $conf, $lang, $ACT, $INFO, $ID, $DOKU_BASE, $INPUT ?>
+
+<div id="pageheader">
+	<!-- Messages -->
+	<div id="msgarea">
+	    <?php html_msgarea() ?>
+	</div>
+
+	<div style="display:flex;align-items:center">
+		<!-- Breadcrumbs -->
+		<div class="breadcrumbs">
+			<?php if (tpl_getConf("dokuwikibreadcrumbs_enable")) { ?>
+				<?php if($conf['youarehere']): ?>
+					<div class="youarehere"><?php tpl_youarehere() ?></div>
+				<?php endif ?>
+				<?php if($conf['breadcrumbs']): ?>
+					<div class="trace"><?php tpl_breadcrumbs() ?></div>
+				<?php endif ?>
+			<?php } else { ?>
+				<?php
+					if ("show" == $ACT && tpl_getConf("breadcrumbs_fullpath")) {
+						//build full path
+						$orgValue = $conf['youarehere'];
+						$conf['youarehere'] = true;
+						$youarehere = tpl_youarehere('» ', true);
+						$conf['youarehere'] = $orgValue;
+
+						//remove text youarehere
+						$youarehere = preg_replace('/.*?bchead.*?span>/', '', $youarehere);
+
+						//replace home
+						$youarehere = preg_replace('/.*?home.*?span>/', '<span class="home"><a href="'.tpl_getConf('startpage').'">'.tpl_getlang("breadcrumbs_docs").'</a></span>', $youarehere);
+
+						//replace current page
+						$matches = array();
+						preg_match_all('/<bdi>.*?<\/bdi>/', $youarehere, $matches);
+
+						$last = end($matches[0]);
+						if (false === $last) {
+							$youarehere .= '» <bdi>'.tpl_pagetitle(null, true).'</bdi>';
+						} else {
+							$youarehere = str_replace($last, '<bdi>'.tpl_pagetitle(null, true).'</bdi>', $youarehere);
+						}
+					} else if ("showtag" == $ACT) {
+						$youarehere = '<span class="home"><a href="'.tpl_getConf('startpage').'">'.tpl_getlang("breadcrumbs_docs").'</a></span>» <bdi>TAG: '.hsc(str_replace('_', ' ', $INPUT->str('tag'))).'</bdi>';
+					} else if ("admin" == $ACT) {
+						$youarehere = '<span class="admin"><a href="'.wl($ID,array('do'=>'admin'),true,'&').'">'.tpl_getlang("breadcrumbs_admin").'</a></span>» <bdi>'.tpl_pagetitle(null, true).'</bdi>';
+					} else {
+						// Set default breadcrums
+						$youarehere = '<span class="home"><a href="'.tpl_getConf('startpage').'">'.tpl_getlang("breadcrumbs_docs").'</a></span>» <bdi>'.tpl_pagetitle(null, true).'</bdi>';
+					}
+
+					echo $youarehere;
+				?>
+			<?php } ?>
+		</div>
+
+		<!-- Edit this page -->
+		<?php if ($ACT == "show" && (isset($INFO["editable"]) && $INFO["editable"])) { ?>
+			<a style="margin-left:auto" href="<?php echo (new \dokuwiki\Menu\Item\Edit())->getLink(); ?>">
+				<i class="fas fa-pencil-alt"></i>
+				<span> <?php echo tpl_getlang("pageheader_editthispage"); ?></span>
+			</a>
+		<?php } ?>
+	</div>
+
+	<?php tpl_includeFile('pageheader.html') ?>
+
+	<hr>
+</div>
