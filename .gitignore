@@ -100,3 +100,5 @@ phpunit.phar
 *.phpunit.result.cache
 _test/data/
 _test/.rector-cache/
+!/lib/tpl/bulma
+!/lib/plugins/gofuckyourself
