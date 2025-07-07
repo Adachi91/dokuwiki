@@ -5,7 +5,7 @@
 */
 .sidebar {
 	/* border: 1px crimson solid; */
-	margin-left: -1.2735rem;
+	margin-left: -1.2735rem; /* This is to be removed due to padding on the .container. */
 	margin-right: 1.2735rem;
 	margin-top: -0.244rem;
 	background: #120721e5;
@@ -62,7 +62,11 @@ hr {
 	list-style-type: square;
 }
 
+/* Navigation */
 
+/* Fix border-shadow color, or remove it completely. */
+
+/* End Navigation */
 
 /* TOC Styling */
 
